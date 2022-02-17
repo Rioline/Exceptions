@@ -15,7 +15,7 @@ import java.util.*;
 
 public class StudentService {
 
-    public static List<Faculty> facultyList() throws UniversityHasNoFacultyException {
+    public static List<Faculty> getAndCheckFacultyList() throws UniversityHasNoFacultyException {
 //----->Отсутствие факультетов в университете
         if (StudentData.facultyList() == null) {
             throw new UniversityHasNoFacultyException("University can't be null!");
@@ -91,7 +91,7 @@ public class StudentService {
         double countOfScores = 0;
         double totalRatingInAllDisciplines = 0;
 
-        for (Faculty faculty : facultyList()) {
+        for (Faculty faculty : getAndCheckFacultyList()) {
             for (Group group : faculty.getGroupList()) {
                 for (Student student : group.getStudentList()) {
                     if (student.getStudentId() == id) {
@@ -125,7 +125,7 @@ public class StudentService {
         double totalRatingInAllDisciplines = 0;
         double countOfScores = 0;
 
-        for (Faculty faculty : facultyList()) {
+        for (Faculty faculty : getAndCheckFacultyList()) {
             if (faculty.getFacultyName() == facultyName) {
                 for (Group group : faculty.getGroupList()) {
                     if (group.getGroupId() == groupId) {
@@ -171,7 +171,7 @@ public class StudentService {
         double totalRatingInAllDisciplines = 0;
         double countOfScores = 0;
 
-        for (Faculty faculty : facultyList()) {
+        for (Faculty faculty : getAndCheckFacultyList()) {
             for (Group group : faculty.getGroupList()) {
                 for (Student student : group.getStudentList()) {
                     Map<Discipline, List<Integer>> rating = student.getRating();

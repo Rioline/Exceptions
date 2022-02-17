@@ -5,8 +5,8 @@ import java.util.List;
 
 public class Faculty {
 
-    FacultyName facultyName;
-    List<Group> groupList;
+    private final FacultyName facultyName;
+    private final List<Group> groupList;
 
     public Faculty(FacultyName facultyName, List<Group> groupList) {
         this.facultyName = facultyName;
